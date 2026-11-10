@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Base UI: two copies on one page</title>
+    <style>
+      body { font-family: system-ui; padding: 24px; }
+      .row { display: flex; gap: 24px; margin-bottom: 24px; }
+      .app, #other { border: 1px solid #ccc; padding: 16px; width: 240px; }
+      .popup { background: white; border: 1px solid #888; padding: 12px; display: flex; gap: 8px; }
+      [aria-hidden='true'] { background: #eee; }
+      #log { font-family: ui-monospace, monospace; white-space: pre; margin-top: 24px; }
+    </style>
+  </head>
+  <body>
+    <p>
+      <code>host.js</code> and <code>embed.js</code> are replaced by <code>single.js</code>: both apps share ONE copy of
+      React and Base UI (like an app plus an injected widget). Both popovers are <code>modal</code>.
+      <button id="run">Run scenario</button>
+      <a href="index.html">Back to the two-copy page</a>
+    </p>
+    <div class="row">
+      <div id="host"></div>
+      <div id="embed"></div>
+    </div>
+    <div id="other">Other page content. Should have <code>aria-hidden="true"</code> while any modal popover is open.</div>
+    <div id="log"></div>
+    
+    <script src="dist/single.js"></script>
+    <script src="scenario.js"></script>
+  </body>
+</html>
